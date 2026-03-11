@@ -15,16 +15,17 @@
   --font-serif: Georgia, 'Times New Roman', serif;
 }
 
-html {
-  scroll-behavior: smooth;
+html, body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: system-ui, -apple-system, sans-serif;
-  overflow: hidden;
-  margin: 0;
 }
 
 /* Panel slide animations */
