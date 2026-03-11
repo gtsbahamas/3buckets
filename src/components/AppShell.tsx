@@ -151,8 +151,10 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className="flex h-screen">
         <Sidebar open={drawerOpen} onClose={() => setDrawerOpen(false)} />
         <MobileHeader onMenuClick={() => setDrawerOpen(true)} />
-        <main className="h-screen flex-1 overflow-y-auto pt-14 lg:ml-64 lg:pt-0">
-          {children}
+        <main className="flex h-screen flex-1 flex-col overflow-hidden lg:ml-64">
+          <div className="h-full pt-14 lg:pt-0">
+            {children}
+          </div>
         </main>
       </div>
     </PanelContext.Provider>

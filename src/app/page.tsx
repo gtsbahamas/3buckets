@@ -16,7 +16,7 @@ function PanelRouter() {
   const animClass = direction === 'right' ? 'animate-slide-in-right' : 'animate-slide-in-left';
 
   return (
-    <div key={activePanel} className={animClass}>
+    <div key={activePanel} className={`h-full ${animClass}`}>
       {activePanel === 'principle' && <PrinciplePanel setActivePanel={setActivePanel} />}
       {activePanel === 'digital' && <DigitalPanel setActivePanel={setActivePanel} />}
       {activePanel === 'judgment' && <JudgmentPanel setActivePanel={setActivePanel} />}
