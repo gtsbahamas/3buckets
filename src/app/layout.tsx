@@ -1,0 +1,15 @@
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: '3 Buckets — The Contributor Framework',
+  description: 'An operational framework for AI-enabled workplace transformation. Classify every task. Automate what you can. Elevate the humans who remain.',
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
