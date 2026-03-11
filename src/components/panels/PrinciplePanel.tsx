@@ -4,7 +4,7 @@ import type { PanelId } from '../AppShell';
 
 export function PrinciplePanel({ setActivePanel }: { setActivePanel: (id: PanelId) => void }) {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-12 lg:py-20">
+    <div className="mx-auto h-full max-w-3xl overflow-y-auto px-6 py-8 lg:py-12">
       <div className="animate-fade-in">
         <p className="text-sm font-semibold uppercase tracking-widest text-gold">The Contributor Framework</p>
         <h1 className="mt-4 text-4xl font-bold leading-tight lg:text-5xl" style={{ fontFamily: 'var(--font-serif)' }}>
