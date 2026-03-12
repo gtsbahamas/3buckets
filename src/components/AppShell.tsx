@@ -4,15 +4,59 @@ import { createContext, useContext, useState, useCallback, type ReactNode } from
 
 // --- Panel IDs and Navigation ---
 
+// Inline SVG icons — consistent rendering across all platforms (no emoji variance)
+const icons = {
+  principle: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" />
+    </svg>
+  ),
+  digital: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+    </svg>
+  ),
+  judgment: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3v18" /><path d="M5 8l7-5 7 5" /><circle cx="5" cy="14" r="3" /><circle cx="19" cy="14" r="3" />
+    </svg>
+  ),
+  contributor: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="2" x2="12" y2="22" /><path d="M9 6l3-4 3 4" /><line x1="5" y1="12" x2="19" y2="12" />
+    </svg>
+  ),
+  rollout: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+    </svg>
+  ),
+  psychology: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2a7 7 0 0 1 7 7c0 3-2 5.5-4 7h-6c-2-1.5-4-4-4-7a7 7 0 0 1 7-7z" /><line x1="10" y1="22" x2="14" y2="22" /><line x1="9" y1="19" x2="15" y2="19" />
+    </svg>
+  ),
+  playbook: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 4h16v16H4z" /><path d="M9 4v16" /><line x1="13" y1="8" x2="18" y2="8" /><line x1="13" y1="12" x2="18" y2="12" /><line x1="13" y1="16" x2="16" y2="16" />
+    </svg>
+  ),
+  casestudy: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="M9 3v6" /><path d="M15 3v6" />
+    </svg>
+  ),
+};
+
 export const PANELS = [
-  { id: 'principle', label: 'The Principle', icon: '◈', section: 'framework' },
-  { id: 'digital', label: 'Digital Bucket', icon: '⚡', section: 'framework' },
-  { id: 'judgment', label: 'Judgment Bucket', icon: '⚖️', section: 'framework' },
-  { id: 'contributor', label: 'Contributor Bucket', icon: '💡', section: 'framework' },
-  { id: 'rollout', label: 'The 90-Day Rollout', icon: '🚀', section: 'playbook' },
-  { id: 'psychology', label: 'The Psychology', icon: '🧠', section: 'playbook' },
-  { id: 'playbook', label: 'The Playbook', icon: '📋', section: 'playbook' },
-  { id: 'casestudy', label: 'Case Study: GTS', icon: '🏢', section: 'evidence' },
+  { id: 'principle', label: 'The Principle', icon: icons.principle, section: 'framework' },
+  { id: 'digital', label: 'Digital Bucket', icon: icons.digital, section: 'framework' },
+  { id: 'judgment', label: 'Judgment Bucket', icon: icons.judgment, section: 'framework' },
+  { id: 'contributor', label: 'Contributor Bucket', icon: icons.contributor, section: 'framework' },
+  { id: 'rollout', label: 'The 90-Day Rollout', icon: icons.rollout, section: 'playbook' },
+  { id: 'psychology', label: 'The Psychology', icon: icons.psychology, section: 'playbook' },
+  { id: 'playbook', label: 'The Playbook', icon: icons.playbook, section: 'playbook' },
+  { id: 'casestudy', label: 'Case Study: GTS', icon: icons.casestudy, section: 'evidence' },
 ] as const;
 
 export type PanelId = (typeof PANELS)[number]['id'];
@@ -87,7 +131,7 @@ function Sidebar({ open, onClose }: { open: boolean; onClose: () => void }) {
                         : 'text-text-muted hover:bg-bg-elevated hover:text-text'
                     }`}
                   >
-                    <span className="text-base">{panel.icon}</span>
+                    <span className="flex items-center justify-center w-5 h-5 shrink-0">{panel.icon}</span>
                     <span>{panel.label}</span>
                   </button>
                 ))}
