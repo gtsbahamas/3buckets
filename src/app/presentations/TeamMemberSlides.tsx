@@ -610,4 +610,26 @@ const teamMemberCSS = `
   .tm-cta-buckets { flex-direction: column; align-items: center; gap: 1.5rem; }
   .tm-cta-bucket-vessel { width: 100px; height: 110px; }
 }
+
+@media (max-width: 480px) {
+  .tm-slide { padding: 1.5rem 1rem; }
+  .tm-problem-visual { gap: 1rem; }
+  .tm-screen-box { width: 80px; height: 55px; font-size: 0.65rem; }
+  .tm-copy-arrow .tm-arrow-line { width: 30px; }
+  .tm-bucket { width: min(200px, 80vw); }
+  .tm-bucket-vessel { width: 100px; height: 100px; }
+  .tm-bucket-direction { gap: 0.75rem; font-size: 0.8rem; flex-wrap: wrap; justify-content: center; }
+  .tm-judgment-queue { max-width: 100%; }
+  .tm-queue-text { font-size: 0.8rem; }
+  .tm-contributor-ideas { max-width: 100%; }
+  .tm-idea-card { gap: 0.75rem; padding: 0.6rem 0.75rem; }
+  .tm-idea-text { font-size: 0.85rem; }
+  .tm-shift-side { padding: 1rem; }
+  .tm-shift-item { font-size: 0.8rem; }
+  .tm-daily-timeline { max-width: 100%; }
+  .tm-cta-bucket { width: min(180px, 80vw); }
+  .tm-cta-bucket-vessel { width: 90px; height: 100px; }
+  .tm-slide-quote { padding: 0 1rem; margin-top: 1.5rem; }
+  .tm-slide-quote::before { left: -0.25rem; }
+}
 `;

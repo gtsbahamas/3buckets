@@ -825,4 +825,40 @@ const managerCSS = `
   .mgr-upgrade-visual { flex-direction: column; gap: 1rem; }
   .upgrade-arrow svg { transform: rotate(90deg); }
 }
+
+@media (max-width: 480px) {
+  .mgr-slide { padding: 1.5rem 1rem; }
+  .recap-bucket { min-width: 0; width: 100%; padding: 1rem; }
+  .mgr-questions-grid { max-width: 100%; }
+  .mgr-question-card { padding: 1rem 0.75rem; }
+  .q-text { font-size: 0.8rem; }
+  .mgr-shift-visual { max-width: 100%; }
+  .mgr-shift-side { padding: 1rem; }
+  .flow-node { font-size: 0.8rem; padding: 0.4rem 0.75rem; }
+  .mgr-toolkit-grid { max-width: 100%; gap: 0.75rem; }
+  .mgr-tool-card { padding: 1rem 0.75rem; }
+  .mgr-day-timeline { max-width: 100%; }
+  .day-time-block { min-width: 55px; }
+  .day-emoji { font-size: 1.25rem; }
+  .day-action { font-size: 0.85rem; }
+  .mgr-pipeline { gap: 0.35rem; }
+  .pipeline-stage { min-width: 65px; }
+  .stage-dot { width: 36px; height: 36px; font-size: 1rem; }
+  .stage-label { font-size: 0.6rem; }
+  .stage-who { font-size: 0.55rem; }
+  .your-badge { font-size: 0.45rem; }
+  .mgr-dashboard-mock { max-width: 100%; gap: 0.75rem; }
+  .mock-name { min-width: 65px; font-size: 0.65rem; }
+  .pipeline-mini { gap: 0.35rem; }
+  .pmini { padding: 0.35rem; }
+  .pmini-label { font-size: 0.5rem; }
+  .impact-metrics { gap: 0.35rem; }
+  .impact-card { padding: 0.35rem; }
+  .impact-num { font-size: 0.85rem; }
+  .impact-label { font-size: 0.5rem; }
+  .upgrade-from, .upgrade-to { padding: 1rem 1.25rem; }
+  .upgrade-icon { font-size: 2rem; }
+  .mgr-quote { padding: 0 1rem; }
+  .mgr-quote::before { left: -0.25rem; }
+}
 `;

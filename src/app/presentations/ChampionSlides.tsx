@@ -581,7 +581,17 @@ const championCSS = `
 }
 
 @media (max-width: 480px) {
+  .ch-slide { padding: 1.5rem 1rem; gap: 0.75rem; }
+  .ch-card-row { grid-template-columns: 1fr; max-width: 100%; }
+  .ch-card { padding: 0.75rem; }
   .ch-two-col { grid-template-columns: 1fr; }
+  .ch-resp { padding: 0.75rem 1rem; gap: 0.75rem; }
+  .ch-callout { padding: 0.75rem 1rem; }
+  .ch-example { padding: 0.75rem 1rem; }
+  .ch-buckets { gap: 0.35rem; }
+  .ch-bucket { padding: 0.5rem; }
+  .ch-bucket-name { font-size: clamp(0.85rem, 3vw, 1.5rem); }
+  .ch-flow-card { padding: 0.75rem 1rem; }
 }
 
 .ch-col-card {

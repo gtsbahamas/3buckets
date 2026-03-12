@@ -75,15 +75,17 @@ export function SlideEngine({ totalSlides, children }: SlideEngineProps) {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: slideEngineCSS }} />
-      <div className="pres-slideshow" onClick={handleClick}>
+      <div className="pres-slideshow" onClick={handleClick} tabIndex={0} role="region" aria-label="Presentation slideshow">
         {children({ currentSlide, animatedSlides, getSlideStyle, a, d })}
 
         <p className="pres-nav-hint">Tap right side or press → to advance</p>
 
-        <nav className="progress-bar" onClick={(e) => e.stopPropagation()}>
+        <nav className="progress-bar" aria-label="Slide navigation" onClick={(e) => e.stopPropagation()}>
           {Array.from({ length: totalSlides }).map((_, i) => (
             <span
               key={i}
+              role="button"
+              aria-label={`Slide ${i + 1}`}
               className={`progress-dot ${i === currentSlide ? 'active' : ''}`}
               onClick={() => goTo(i)}
             />

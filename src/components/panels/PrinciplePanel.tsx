@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import type { PanelId } from '../AppShell';
 import { Expandable } from '../Expandable';
 
