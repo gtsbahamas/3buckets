@@ -73,20 +73,68 @@ export function SlideEngine({ totalSlides, children }: SlideEngineProps) {
   const d = (delay: number): React.CSSProperties => ({ animationDelay: `${delay * 0.15}s` });
 
   return (
-    <div className="pres-slideshow" onClick={handleClick}>
-      {children({ currentSlide, animatedSlides, getSlideStyle, a, d })}
+    <>
+      <style dangerouslySetInnerHTML={{ __html: slideEngineCSS }} />
+      <div className="pres-slideshow" onClick={handleClick}>
+        {children({ currentSlide, animatedSlides, getSlideStyle, a, d })}
 
-      <p className="pres-nav-hint">Tap right side or press → to advance</p>
+        <p className="pres-nav-hint">Tap right side or press → to advance</p>
 
-      <nav className="progress-bar" onClick={(e) => e.stopPropagation()}>
-        {Array.from({ length: totalSlides }).map((_, i) => (
-          <span
-            key={i}
-            className={`progress-dot ${i === currentSlide ? 'active' : ''}`}
-            onClick={() => goTo(i)}
-          />
-        ))}
-      </nav>
-    </div>
+        <nav className="progress-bar" onClick={(e) => e.stopPropagation()}>
+          {Array.from({ length: totalSlides }).map((_, i) => (
+            <span
+              key={i}
+              className={`progress-dot ${i === currentSlide ? 'active' : ''}`}
+              onClick={() => goTo(i)}
+            />
+          ))}
+        </nav>
+      </div>
+    </>
   );
 }
+
+const slideEngineCSS = `
+.pres-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: hsla(220, 13%, 10%, 0.8);
+  border-radius: 2rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border, hsl(220 13% 18%));
+}
+
+.progress-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--border, hsl(220 13% 18%));
+  cursor: pointer; transition: all 0.3s ease;
+}
+.progress-dot:hover { background: var(--fg-muted, hsl(220 10% 55%)); transform: scale(1.3); }
+.progress-dot.active {
+  background: var(--gold, hsl(38 92% 50%));
+  transform: scale(1.3);
+  box-shadow: 0 0 12px hsla(38, 92%, 50%, 0.4);
+}
+
+.pres-nav-hint {
+  position: absolute; bottom: 5rem; left: 50%; transform: translateX(-50%);
+  color: var(--fg-muted, hsl(220 10% 55%)); font-size: 0.8rem; opacity: 0.6;
+  z-index: 100; pointer-events: none;
+  animation: pres-fade-pulse 3s ease-in-out infinite;
+  white-space: nowrap;
+}
+@keyframes pres-fade-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+`;
