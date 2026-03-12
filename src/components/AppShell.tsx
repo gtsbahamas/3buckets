@@ -98,6 +98,12 @@ function Sidebar({ open, onClose }: { open: boolean; onClose: () => void }) {
 
         {/* Footer */}
         <div className="border-t border-border px-5 py-4">
+          <a
+            href="/presentations"
+            className="block text-sm text-gold hover:text-gold-light transition mb-3"
+          >
+            View Presentations →
+          </a>
           <p className="text-xs text-text-muted">
             The Contributor Framework
           </p>
