@@ -106,13 +106,14 @@ const slideEngineCSS = `
 
 .progress-bar {
   position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
+  flex-direction: column;
   gap: 0.75rem;
   z-index: 100;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 0.5rem;
   background: hsla(220, 13%, 10%, 0.8);
   border-radius: 2rem;
   backdrop-filter: blur(8px);
@@ -132,11 +133,17 @@ const slideEngineCSS = `
 }
 
 .pres-nav-hint {
-  position: absolute; bottom: 5rem; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
   color: var(--fg-muted, hsl(220 10% 55%)); font-size: 0.8rem; opacity: 0.6;
   z-index: 100; pointer-events: none;
   animation: pres-fade-pulse 3s ease-in-out infinite;
   white-space: nowrap;
 }
 @keyframes pres-fade-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+
+@media (max-width: 768px) {
+  .progress-bar { left: 0.5rem; padding: 0.5rem 0.35rem; gap: 0.5rem; }
+  .progress-dot { width: 8px; height: 8px; }
+  .pres-nav-hint { bottom: 1rem; font-size: 0.7rem; }
+}
 `;
